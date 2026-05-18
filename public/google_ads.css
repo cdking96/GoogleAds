@@ -1515,6 +1515,24 @@ button.ga-floating-add .material-symbols-outlined {
     vertical-align: middle;
 }
 
+.ga-sort-header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.ga-sort-header .material-symbols-outlined {
+    flex: 0 0 auto;
+}
+
 .ga-data-table tr:hover td {
     background: #f8fafd;
 }

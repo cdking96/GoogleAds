@@ -769,7 +769,15 @@
                                     <th>Clicks</th>
                                     <th>CTR</th>
                                     <th>Impr.</th>
-                                    <th>Cost <span class="material-symbols-outlined">arrow_downward</span></th>
+                                    <th :aria-sort="assetCostSortDirection === 'asc' ? 'ascending' : 'descending'">
+                                        <button class="ga-sort-header" type="button" @click="toggleAssetCostSort"
+                                            aria-label="Sort assets by cost">
+                                            <span>Cost</span>
+                                            <span class="material-symbols-outlined">
+                                                {{ assetCostSortDirection === 'asc' ? 'arrow_upward' : 'arrow_downward' }}
+                                            </span>
+                                        </button>
+                                    </th>
                                     <th>Installs</th>
                                     <th>Cost / Install</th>
                                     <th>In-app actions</th>
