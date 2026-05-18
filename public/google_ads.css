@@ -945,6 +945,15 @@
     flex: 1;
 }
 
+.ga-metric-delta {
+    display: flex;
+    align-items: center;
+}
+
+.ga-metric-delta:last-child i {
+    display: none;
+}
+
 .ga-metrics {
     margin: 0 28px;
     min-height: 132px;
@@ -1139,7 +1148,7 @@
 
 .ga-table-panel {
     position: relative;
-    margin: 0 28px 18px;
+    margin: 0 28px 28px;
     background: #fff;
     box-shadow: 0 2px 4px rgba(60, 64, 67, 0.24);
     padding-top: 8px;
@@ -1149,7 +1158,7 @@ button.ga-floating-add {
     position: sticky;
     z-index: 20;
     left: 22px;
-    top: 80px;
+    top: 100px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1307,7 +1316,7 @@ button.ga-floating-add .material-symbols-outlined {
 
 .ga-data-table th,
 .ga-data-table td {
-    min-width: 126px;
+    min-width: 42px;
     height: 64px;
     border-right: 1px solid #dadce0;
     border-bottom: 1px solid #dadce0;
@@ -1325,15 +1334,15 @@ button.ga-floating-add .material-symbols-outlined {
 }
 
 .ga-data-table .select-col {
-    min-width: 54px;
-    width: 54px;
+    width: 24px;
+    font-size: 13px;
     text-align: center;
 }
 
 .ga-data-table .state-col {
-    min-width: 46px;
     width: 46px;
-    text-align: center;
+    text-align: left;
+    vertical-align: left;
     overflow: visible;
     position: relative;
 }
@@ -1352,6 +1361,21 @@ button.ga-floating-add .material-symbols-outlined {
     min-width: 320px;
 }
 
+.ga-data-table .name-col .gear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.ga-data-table .name-col:hover .gear {
+  opacity: 1;
+}
+
 .ga-data-table th .material-symbols-outlined {
     font-size: 18px;
     vertical-align: middle;
@@ -1362,8 +1386,8 @@ button.ga-floating-add .material-symbols-outlined {
 }
 
 .ga-checkbox {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border: 2px solid #777;
     border-radius: 2px;
     display: inline-block;
@@ -1395,6 +1419,8 @@ button.ga-floating-add .material-symbols-outlined {
 .ga-status-cell {
     position: relative;
     display: flex;
+    align-self: center;
+    width: 42px;
     justify-content: center;
 }
 
