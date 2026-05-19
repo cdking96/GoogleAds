@@ -2063,6 +2063,52 @@ button.ga-floating-add .material-symbols-outlined {
     justify-content: center;
 }
 
+.ga-page-size-control {
+    position: relative;
+    display: inline-flex;
+}
+
+.ga-page-size-control .material-symbols-outlined {
+    transition: transform 0.16s ease;
+}
+
+.ga-page-size-control .material-symbols-outlined.rotated {
+    transform: rotate(180deg);
+}
+
+.ga-page-size-menu {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 6px);
+    display: flex;
+    flex-direction: column;
+    min-width: 82px;
+    padding: 4px 0;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(60, 64, 67, 0.22);
+    z-index: 30;
+}
+
+.ga-page-size-menu button {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 34px;
+    justify-content: flex-start;
+    border: 0;
+    border-radius: 0;
+    padding: 0 14px;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+.ga-page-size-menu button:hover,
+.ga-page-size-menu button.active {
+    background: #f1f3f4;
+}
+
 .muted {
     color: #bdc1c6;
 }

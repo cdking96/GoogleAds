@@ -110,6 +110,10 @@ createApp({
             ads_isAssetsOpen:false,
             isNotificationsOpen: false,
             isRefreshing: false,
+            pageSize: 30,
+            pageSizeOptions: [10, 30, 50, 100],
+            showPageSizeDropdown: false,
+            currentPage: 1,
             metricDeltaRatios: {},
             assetSortKey: 'cost',
             assetSortDirection: 'desc',
@@ -475,14 +479,41 @@ createApp({
         assetTypeSortDirection() {
             return this.assetSortKey === 'assetType' ? this.assetSortDirection : 'asc';
         },
+        activeRows() {
+            if (this.pageMode === 'adassets') return this.assetRows;
+            if (this.pageMode === 'adgroups') return this.adGroupRows;
+            return this.campaignRows;
+        },
+        totalPages() {
+            return Math.max(1, Math.ceil(this.activeRows.length / this.pageSize));
+        },
+        displayPage() {
+            return Math.min(this.currentPage, this.totalPages);
+        },
+        pageStartIndex() {
+            return (this.displayPage - 1) * this.pageSize;
+        },
+        paginatedCampaignRows() {
+            return this.campaignRows.slice(this.pageStartIndex, this.pageStartIndex + this.pageSize);
+        },
+        paginatedAdGroupRows() {
+            return this.adGroupRows.slice(this.pageStartIndex, this.pageStartIndex + this.pageSize);
+        },
+        paginatedAssetRows() {
+            return this.assetRows.slice(this.pageStartIndex, this.pageStartIndex + this.pageSize);
+        },
         paginationText() {
-            if (this.pageMode === 'adassets') {
-                return `1 - ${this.assetRows.length} of ${this.assetRows.length}`;
-            }
-            if (this.pageMode === 'adgroups') {
-                return `1 - ${this.adGroupRows.length} of ${this.adGroupRows.length}`;
-            }
-            return `1 - ${this.campaignRows.length} of ${this.campaignRows.length}`;
+            const totalRows = this.activeRows.length;
+            if (!totalRows) return '0 - 0 of 0';
+            const start = this.pageStartIndex + 1;
+            const end = Math.min(this.pageStartIndex + this.pageSize, totalRows);
+            return `${start} - ${end} of ${totalRows}`;
+        },
+        canGoPreviousPage() {
+            return this.displayPage > 1;
+        },
+        canGoNextPage() {
+            return this.displayPage < this.totalPages;
         },
         calendarMonths() {
             const months = [];
@@ -543,6 +574,8 @@ createApp({
         pageMode(newMode) {
             // 1. 只要切换了页面模式，不管三七二十一，先强制让顶部栏显示出来
             this.isContextBarHidden = false;
+            this.currentPage = 1;
+            this.showPageSizeDropdown = false;
             
             // 2. 让滚动容器 (.ga-main) 瞬间回到最顶部，清除上一页残留的滚动距离
             this.$nextTick(() => {
@@ -960,6 +993,7 @@ createApp({
                 window.location.href = '/aw/campaigns';
                 return;
             }
+            this.showPageSizeDropdown = false;
             this.dropdown = this.dropdown === name ? '' : name;
         },
         toggleNavigation() {
@@ -977,6 +1011,34 @@ createApp({
         },
         closeDropdown() {
             this.dropdown = '';
+            this.showPageSizeDropdown = false;
+        },
+        togglePageSizeDropdown() {
+            this.dropdown = '';
+            this.showPageSizeDropdown = !this.showPageSizeDropdown;
+        },
+        setPageSize(size) {
+            const nextSize = Number(size);
+            if (!this.pageSizeOptions.includes(nextSize)) return;
+            this.pageSize = nextSize;
+            this.currentPage = 1;
+            this.showPageSizeDropdown = false;
+        },
+        goToFirstPage() {
+            this.currentPage = 1;
+        },
+        goToPreviousPage() {
+            if (this.canGoPreviousPage) {
+                this.currentPage = this.displayPage - 1;
+            }
+        },
+        goToNextPage() {
+            if (this.canGoNextPage) {
+                this.currentPage = this.displayPage + 1;
+            }
+        },
+        goToLastPage() {
+            this.currentPage = this.totalPages;
         },
         statusDropdownName(campaignId) {
             return `campaign-status-${campaignId}`;

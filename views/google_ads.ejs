@@ -742,7 +742,7 @@
                                         Drafts in progress: 0</td>
                                     <td colspan="14"></td>
                                 </tr>
-                                <tr v-for="(campaign, index) in campaignRows" :key="campaign.id || index">
+                                <tr v-for="(campaign, index) in paginatedCampaignRows" :key="campaign.id || index">
                                     <td class="select-col"><span class="ga-checkbox"></span></td>
                                     <td class="state-col">
                                         <div class="ga-status-cell"
@@ -849,7 +849,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(adGroup, index) in adGroupRows" :key="adGroup.id">
+                                <tr v-for="(adGroup, index) in paginatedAdGroupRows" :key="adGroup.id">
                                     <td><span class="ga-checkbox"></span></td>
                                     <td><span
                                             :class="'ga-status-dot ' + statusDotClass(getStatusFromRow(adGroup))"></span>
@@ -929,7 +929,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="asset in assetRows" :key="asset.id">
+                                <tr v-for="asset in paginatedAssetRows" :key="asset.id">
                                     <td class="asset-cell name-col">
                                         <span class="ga-status-dot enabled"></span>
                                         <button v-if="asset.assetType === 'Image'" type="button" class="asset-thumb"
@@ -960,13 +960,28 @@
 
                     <div class="ga-pagination">
                         <span>Show rows:</span>
-                        <button type="button">{{ pageMode === 'campaigns' ? 100 : 50 }} <span
-                                class="material-symbols-outlined">arrow_drop_down</span></button>
+                        <div class="ga-page-size-control" @click.stop>
+                            <button type="button" @click.stop="togglePageSizeDropdown">
+                                {{ pageSize }}
+                                <span class="material-symbols-outlined"
+                                    :class="{ rotated: showPageSizeDropdown }">arrow_drop_down</span>
+                            </button>
+                            <div v-if="showPageSizeDropdown" class="ga-page-size-menu">
+                                <button v-for="option in pageSizeOptions" :key="option" type="button"
+                                    :class="{ active: option === pageSize }" @click.stop="setPageSize(option)">
+                                    {{ option }}
+                                </button>
+                            </div>
+                        </div>
                         <span>{{ paginationText }}</span>
-                        <span class="material-symbols-outlined muted">first_page</span>
-                        <span class="material-symbols-outlined muted">chevron_left</span>
-                        <span class="material-symbols-outlined muted">chevron_right</span>
-                        <span class="material-symbols-outlined muted">last_page</span>
+                        <span class="material-symbols-outlined" :class="{ muted: !canGoPreviousPage }"
+                            @click="canGoPreviousPage && goToFirstPage()">first_page</span>
+                        <span class="material-symbols-outlined" :class="{ muted: !canGoPreviousPage }"
+                            @click="canGoPreviousPage && goToPreviousPage()">chevron_left</span>
+                        <span class="material-symbols-outlined" :class="{ muted: !canGoNextPage }"
+                            @click="canGoNextPage && goToNextPage()">chevron_right</span>
+                        <span class="material-symbols-outlined" :class="{ muted: !canGoNextPage }"
+                            @click="canGoNextPage && goToLastPage()">last_page</span>
                     </div>
                 </section>
 
