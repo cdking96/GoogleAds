@@ -308,6 +308,35 @@ createApp({
                 { label: 'Avg. target CPA', value: '-', delta: '-' }
             ];
         },
+        conversionsChartValue() {
+            return this.pageMode === 'adgroups'
+                ? safeNumber(this.selectedConversions)
+                : safeNumber(this.totals.conversions);
+        },
+        conversionsChartMax() {
+            const value = this.conversionsChartValue;
+            if (value <= 0) return 2;
+            return Math.max(value, Math.ceil(value));
+        },
+        conversionsChartLabels() {
+            const max = this.conversionsChartMax;
+            return {
+                max: this.fixed(max, 2),
+                mid: this.fixed(max / 2, 2),
+                min: this.fixed(0, 2)
+            };
+        },
+        conversionsChartPoint() {
+            const top = 30;
+            const bottom = 154;
+            const max = this.conversionsChartMax;
+            const value = Math.min(this.conversionsChartValue, max);
+            const ratio = max > 0 ? value / max : 0;
+            return {
+                x: 555,
+                y: bottom - ratio * (bottom - top)
+            };
+        },
         metricActions() {
             return [
                 { icon: 'add_chart', label: 'Metrics' },

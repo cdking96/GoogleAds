@@ -514,7 +514,8 @@ createApp({
             });
         },
         selectCalendarDate(date) {
-            if (this.selectingStartDate) {
+            let shouldApplyCustomRange = false;
+            if (this.selectingStartDate || !this.draftStartDate) {
                 this.draftStartDate = new Date(date);
                 this.draftEndDate = null;
                 this.selectingStartDate = false;
@@ -526,9 +527,13 @@ createApp({
                     this.draftEndDate = new Date(date);
                 }
                 this.selectingStartDate = true;
+                shouldApplyCustomRange = true;
             }
             this.selectedDateOption = 'custom';
             this.calendarMonth = new Date(date);
+            if (shouldApplyCustomRange) {
+                return this.applyDateRange();
+            }
         },
         selectStartDate() {
             this.selectingStartDate = true;
@@ -557,13 +562,15 @@ createApp({
             this.draftEndDate = this.cloneDate(this.endDate);
             this.selectingStartDate = true;
         },
-        applyDateRange() {
+        applyDateRange(options = {}) {
             if (!this.draftStartDate || !this.draftEndDate) return;
             this.startDate = this.cloneDate(this.draftStartDate);
             this.endDate = this.cloneDate(this.draftEndDate);
             this.appliedDateOption = this.selectedDateOption;
             this.currentPage = 1;
             this.showDatePicker = false;
+            if (options.skipRefresh) return;
+            return this.runReportDataLoad();
         },
         cancelDateRange() {
             this.resetDraftDateRange();
@@ -711,14 +718,12 @@ createApp({
             } catch (error) {
             }
         },
-        async refreshPage() {
+        async runReportDataLoad() {
             if (this.isRefreshing) return;
             this.isRefreshing = true;
-            this.showDatePicker = false;
             this.showPageSizeDropdown = false;
             try {
                 await this.$nextTick();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
                 await Promise.all([
                     this.loadTableData(),
                     new Promise(resolve => setTimeout(resolve, 1400))
@@ -727,6 +732,10 @@ createApp({
             } finally {
                 this.isRefreshing = false;
             }
+        },
+        async refreshPage() {
+            this.showDatePicker = false;
+            await this.runReportDataLoad();
         },
         togglePageSizeDropdown() {
             this.showPageSizeDropdown = !this.showPageSizeDropdown;
@@ -740,7 +749,7 @@ createApp({
     async mounted() {
         await this.loadTableData();
         this.selectDateOption('yesterday');
-        this.applyDateRange();
+        this.applyDateRange({ skipRefresh: true });
         document.addEventListener('click', this.handleClickOutside);
     },
     beforeUnmount() {

@@ -648,17 +648,15 @@
                     <span class="ga-asset-chart-date">{{ formattedEndDate }}</span>
                 </section>
 
-                <section v-if="pageMode !== 'adassets'" class="ga-chart-area">
-                    <svg viewBox="0 0 1000 180" preserveAspectRatio="none" aria-label="Performance chart">
-                        <rect v-for="x in [35, 300, 565, 830]" :key="x" :x="x" y="18" width="38" height="136"
-                            class="ga-chart-band"></rect>
-                        <line x1="20" y1="28" x2="980" y2="28"></line>
-                        <text x="8" y="33" class="ga-chart-label">2</text>
-                        <line x1="20" y1="90" x2="980" y2="90"></line>
-                        <text x="8" y="95" class="ga-chart-label">1</text>
-                        <line x1="20" y1="154" x2="980" y2="154"></line>
-                        <text x="8" y="159" class="ga-chart-label">0</text>
-                        <polyline points="20,154 980,154" class="ga-chart-line"></polyline>
+                <section v-if="pageMode === 'campaigns' || pageMode === 'adgroups'" class="ga-chart-area ga-conversions-dot-chart">
+                    <svg viewBox="0 0 1000 180" preserveAspectRatio="none" aria-label="Conversions dot chart">
+                        <line x1="78" y1="30" x2="970" y2="30"></line>
+                        <text x="58" y="34" class="ga-chart-label">{{ conversionsChartLabels.max }}</text>
+                        <line x1="78" y1="92" x2="970" y2="92"></line>
+                        <text x="58" y="96" class="ga-chart-label">{{ conversionsChartLabels.mid }}</text>
+                        <line x1="78" y1="154" x2="970" y2="154"></line>
+                        <text x="58" y="158" class="ga-chart-label">{{ conversionsChartLabels.min }}</text>
+                        <circle :cx="conversionsChartPoint.x" :cy="conversionsChartPoint.y" r="4" class="ga-chart-point"></circle>
                     </svg>
                     <div v-if="isRefreshing" class="ga-chart-loading" role="status" aria-label="Refreshing data">
                         <span></span>

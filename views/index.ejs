@@ -187,14 +187,11 @@
                     <span style="font-size: 12px; font-weight: 500;">Save</span>
                 </button>
             </div>
-            <div v-if="isRefreshing" class="page-refresh-overlay" aria-live="polite" aria-label="Refreshing page">
-                <div class="page-refresh-progress"></div>
-            </div>
         </div>
 
 
         <!-- 第2行：工具栏 -->
-        <div class="toolbar" :class="{ 'refresh-below-reveal': isRefreshing }">
+        <div class="toolbar">
             <div class="toolbar-left">
                 <div class="campaign-selector">
                     <button class="selector-btn">
@@ -242,7 +239,7 @@
         </div>
 
         <!-- 第3行：日期选择栏 -->
-<div class="content-wrapper" :class="{ 'refresh-below-reveal': isRefreshing }" style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
+<div class="content-wrapper" style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
         <div style="display: flex; flex: 1; min-height: 0;">
 
         <div class="main-content" style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
@@ -465,7 +462,10 @@
         </div>
 
         <!-- 表格区域 -->
-        <div class="table-wrapper">
+        <div class="table-wrapper" :class="{ 'is-reloading': isRefreshing }">
+            <div v-if="isRefreshing" class="table-refresh-overlay" aria-live="polite" aria-label="Refreshing table">
+                <div class="table-refresh-progress"></div>
+            </div>
             <div class="table-scroll">
             <table class="data-table" :class="{ 'is-reloading': isRefreshing }" :style="tableColumnStyle">
                 <thead>

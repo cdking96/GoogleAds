@@ -29,3 +29,21 @@ test('ad assets table filter toolbar stays pinned while scrolling', () => {
   assert.match(css, /\.ga-table-panel--adassets\s+\.ga-table-toolbar\s*\{[^}]*top:\s*56px;/s);
   assert.match(css, /\.ga-table-panel--adassets\s+\.ga-table-toolbar\s*\{[^}]*z-index:\s*45;/s);
 });
+
+test('campaign and ad group pages render conversions as a dot chart with a left axis', () => {
+  const template = fs.readFileSync(path.join(__dirname, '..', 'views', 'google_ads.ejs'), 'utf8');
+  const styles = fs.readFileSync(path.join(__dirname, '..', 'public', 'google_ads.css'), 'utf8');
+
+  assert.match(
+    template,
+    /<section\s+v-if="pageMode === 'campaigns' \|\| pageMode === 'adgroups'"\s+class="ga-chart-area ga-conversions-dot-chart"/
+  );
+  assert.match(template, /aria-label="Conversions dot chart"/);
+  assert.match(template, /\{\{\s*conversionsChartLabels\.max\s*\}\}/);
+  assert.match(template, /\{\{\s*conversionsChartLabels\.mid\s*\}\}/);
+  assert.match(template, /\{\{\s*conversionsChartLabels\.min\s*\}\}/);
+  assert.match(template, /<circle\s+:cx="conversionsChartPoint\.x"\s+:cy="conversionsChartPoint\.y"\s+r="4"\s+class="ga-chart-point"/);
+  assert.match(styles, /\.ga-conversions-dot-chart\s+\.ga-chart-label\s*\{[^}]*text-anchor:\s*end;/s);
+  assert.match(styles, /\.ga-chart-point\s*\{[^}]*fill:\s*#1a73e8;/s);
+  assert.doesNotMatch(template, /<polyline\s+points="20,154 980,154"\s+class="ga-chart-line"><\/polyline>/);
+});

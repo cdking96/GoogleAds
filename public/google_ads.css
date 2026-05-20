@@ -1541,6 +1541,16 @@
     font-weight: 500;
 }
 
+.ga-conversions-dot-chart .ga-chart-label {
+    text-anchor: end;
+}
+
+.ga-chart-point {
+    fill: #1a73e8;
+    stroke: #1a73e8;
+    stroke-width: 1;
+}
+
 .ga-chart-start,
 .ga-chart-end {
     bottom: 10px;
