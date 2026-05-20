@@ -135,10 +135,6 @@
             </div>
         </div>
 
-        <div v-if="isRefreshing" class="page-refresh-overlay" aria-live="polite" aria-label="Refreshing page">
-            <div class="page-refresh-progress"></div>
-        </div>
-
         <!-- 第2行：视图和广告系列选择器 -->
         <div class="view-campaign-bar">
             <div class="view-campaign-left">
@@ -191,11 +187,14 @@
                     <span style="font-size: 12px; font-weight: 500;">Save</span>
                 </button>
             </div>
+            <div v-if="isRefreshing" class="page-refresh-overlay" aria-live="polite" aria-label="Refreshing page">
+                <div class="page-refresh-progress"></div>
+            </div>
         </div>
 
 
         <!-- 第2行：工具栏 -->
-        <div class="toolbar">
+        <div class="toolbar" :class="{ 'refresh-below-reveal': isRefreshing }">
             <div class="toolbar-left">
                 <div class="campaign-selector">
                     <button class="selector-btn">
@@ -243,7 +242,7 @@
         </div>
 
         <!-- 第3行：日期选择栏 -->
-<div class="content-wrapper" style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
+<div class="content-wrapper" :class="{ 'refresh-below-reveal': isRefreshing }" style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
         <div style="display: flex; flex: 1; min-height: 0;">
 
         <div class="main-content" style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
