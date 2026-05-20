@@ -1224,7 +1224,7 @@
 
 .ga-asset-strength {
     position: sticky;
-    top: 66px;
+    top: 78px;
     margin: 0 28px;
     min-height: 72px;
     background: #e8f0fe;
@@ -1611,7 +1611,7 @@ button.ga-floating-add--fixed {
 
 .ga-table-panel--adassets button.ga-floating-add--fixed {
     position: fixed;
-    top: 225px;
+    top: 235px;
     left: 372px;
 }
 
@@ -1633,8 +1633,8 @@ button.ga-floating-add .material-symbols-outlined {
 }
 
 .ga-table-panel--adassets .ga-table-toolbar {
-    top: 145px;
-    z-index: 45;
+    top: 158px;
+    z-index: 15;
     box-shadow: 0 2px 6px rgba(60, 64, 67, 0.16);
 }
 
