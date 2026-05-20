@@ -281,7 +281,7 @@ body {
 
 .page-refresh-overlay {
     position: absolute;
-    top: 80px;
+    bottom: 0;
     left: 0;
     right: 0;
     height: 3px;
@@ -310,6 +310,11 @@ body {
     height: 100%;
     background: #1a73e8;
     animation: refresh-progress 1.2s ease-in-out infinite;
+}
+
+.toolbar.refresh-below-reveal,
+.content-wrapper.refresh-below-reveal {
+    animation: refresh-below-reveal 520ms cubic-bezier(0.2, 0, 0, 1) both;
 }
 
 .header-btn:hover {
@@ -413,6 +418,23 @@ body {
     100% {
         left: 100%;
         width: 35%;
+    }
+}
+
+@keyframes refresh-below-reveal {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    32% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -613,6 +635,7 @@ body {
 
 /* ========== 第3行：过滤栏 ========== */
 .filter-bar-hd {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
