@@ -714,6 +714,19 @@ createApp({
                 console.error('Unable to load ad assets', error);
             }
         },
+        hideGoogleAdsBootLoader() {
+            const loader = document.getElementById('google-ads-boot-loader');
+            if (!loader) return;
+
+            const startedAt = Number(window.__googleAdsBootStartedAt || 0);
+            const elapsed = startedAt ? performance.now() - startedAt : 0;
+            const remaining = Math.max(0, 1000 - elapsed);
+
+            window.setTimeout(() => {
+                loader.classList.add('is-hidden');
+                window.setTimeout(() => loader.remove(), 220);
+            }, remaining);
+        },
         toggleAssetSort(key) {
             if (this.assetSortKey === key) {
                 this.assetSortDirection = this.assetSortDirection === 'asc' ? 'desc' : 'asc';
@@ -1464,6 +1477,7 @@ createApp({
     },
     async mounted() {
         await this.loadData();
+        this.hideGoogleAdsBootLoader();
         document.addEventListener('click', this.closeDropdown);
         document.addEventListener('click', this.handleClickOutside);
 

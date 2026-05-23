@@ -115,44 +115,28 @@ body {
 }
 
 .report-boot-logo {
-    position: relative;
-    width: 164px;
-    height: 132px;
+    display: block;
+    width: 192px;
+    height: 192px;
+    overflow: visible;
 }
 
-.report-boot-logo span {
-    position: absolute;
-    display: block;
-    border-radius: 999px;
+.report-boot-logo-shape {
+    transform-box: fill-box;
     transform-origin: center;
-    animation: report-boot-logo-pulse 1.2s ease-in-out infinite;
 }
 
 .report-boot-logo-yellow {
-    left: 41px;
-    top: 53px;
-    width: 42px;
-    height: 104px;
-    background: #fbbc04;
-    transform: rotate(30deg);
+    animation: report-boot-yellow-expand 420ms cubic-bezier(0.2, 0, 0, 1) forwards;
 }
 
 .report-boot-logo-green {
-    left: 17px;
-    top: 82px;
-    width: 42px;
-    height: 42px;
-    background: #34a853;
+    opacity: 0;
+    animation: report-boot-green-slide 520ms cubic-bezier(0.2, 0, 0, 1) 300ms forwards;
 }
 
 .report-boot-logo-blue {
-    left: 76px;
-    top: 29px;
-    width: 50px;
-    height: 118px;
-    background: #4285f4;
-    transform: rotate(-30deg);
-    animation-delay: 90ms;
+    animation: report-boot-blue-expand 420ms cubic-bezier(0.2, 0, 0, 1) forwards;
 }
 
 @keyframes report-boot-progress {
@@ -169,14 +153,55 @@ body {
     }
 }
 
-@keyframes report-boot-logo-pulse {
-    0%,
-    100% {
-        filter: brightness(1);
+@keyframes report-boot-yellow-expand {
+    from {
+        transform: translate(34px, -12px) rotate(-24deg) scaleY(0.88);
     }
 
-    50% {
-        filter: brightness(1.06);
+    to {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes report-boot-green-slide {
+    from {
+        opacity: 0;
+        transform: translate(49px, -84px) scale(0.58);
+    }
+
+    38% {
+        opacity: 1;
+        transform: translate(49px, -84px) scale(0.58);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(16px, -28px) scale(0.86);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes report-boot-blue-expand {
+    from {
+        transform: translate(-22px, 12px) rotate(26deg) scaleY(0.9);
+    }
+
+    to {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .report-boot-logo-shape {
+        animation: none;
+    }
+
+    .report-boot-progress span {
+        animation-duration: 2.4s;
     }
 }
 
