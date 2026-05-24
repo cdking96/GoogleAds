@@ -525,8 +525,8 @@
                                 <input type="text" v-model="accountSearchQuery" class="account-search-input" placeholder="Search">
                             </div>
                             <div class="account-selection-status">
-                                <span class="selected-count">{{ selectedAccounts.length }} selected</span>
-                                <span class="clear-all-btn" @click="clearAllAccounts" v-if="selectedAccounts.length > 0">Clear all</span>
+                                <span class="selected-count">{{ modalSelectedAccounts.length }} selected</span>
+                                <span class="clear-all-btn" @click="clearAllAccounts" v-if="modalSelectedAccounts.length > 0">Clear all</span>
                             </div>
                         </div>
                     </div>
@@ -545,7 +545,7 @@
                                 <div v-for="account in filteredAvailableAccounts" :key="account.id"
                                     class="account-item" :class="{ selected: isAccountSelected(account.id) }">
                                     <label class="account-checkbox">
-                                        <input type="checkbox" :value="account.id" v-model="selectedAccounts">
+                                        <input type="checkbox" :value="account.id" v-model="modalSelectedAccounts">
                                         <span class="account-info">
                                             <span class="account-primary">{{ account.name }}</span>
                                             <span class="account-secondary">{{ account.phone }}</span>
@@ -564,7 +564,7 @@
                                 <span class="selected-panel-title">Selected accounts</span>
                             </div>
                             <div class="account-list">
-                                <div v-for="accountId in selectedAccounts" :key="'selected-' + accountId"
+                                <div v-for="accountId in modalSelectedAccounts" :key="'selected-' + accountId"
                                     class="account-item selected-item">
                                     <span class="account-info">
                                         <span class="account-primary">{{ getAccountById(accountId)?.name }}</span>
@@ -572,7 +572,7 @@
                                     </span>
                                     <span class="material-symbols-outlined remove-account-btn" @click="removeAccount(accountId)">close</span>
                                 </div>
-                                <div v-if="selectedAccounts.length === 0" class="no-accounts-message">
+                                <div v-if="modalSelectedAccounts.length === 0" class="no-accounts-message">
                                     No accounts selected
                                 </div>
                             </div>
@@ -582,7 +582,7 @@
                     <!-- 底部：操作按钮 -->
                     <div class="account-modal-footer">
                         <button class="account-modal-btn cancel-btn" @click="closeAccountModal">Cancel</button>
-                        <button class="account-modal-btn save-btn" @click="saveAccountSelection">Save</button>
+                        <button class="account-modal-btn save-btn" @click="saveModalAccountSelection">Save</button>
                     </div>
                 </div>
             </div>

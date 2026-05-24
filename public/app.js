@@ -148,7 +148,7 @@ createApp({
             showAccountModal: false,
             accountFilterType: 'accounts',
             accountSearchQuery: '',
-            selectedAccounts: ['1124-4-mcc', '172-135-6148'],
+            modalSelectedAccounts: ['1124-4-mcc', '172-135-6148'],
             // Filter 选择器
             showFilterDropdown: false,
             filterSearchQuery: '',
@@ -230,7 +230,7 @@ createApp({
                 && this.accountOptions.every(account => this.draftSelectedAccounts.includes(account.id));
         },
         draftSelectedCount() {
-            return this.draftSelectedAccounts.length;
+            return this.filterSelectableAccountIds(this.draftSelectedAccounts).length;
         },
         filteredCampaigns() {
             let result = this.campaigns;
@@ -439,7 +439,7 @@ createApp({
         },
         allAccountsSelected() {
             return this.filteredAvailableAccounts.length > 0 &&
-                this.filteredAvailableAccounts.every(account => this.selectedAccounts.includes(account.id));
+                this.filteredAvailableAccounts.every(account => this.modalSelectedAccounts.includes(account.id));
         },
         filteredAllFilters() {
             if (!this.filterSearchQuery) return this.allFilters;
@@ -947,13 +947,17 @@ createApp({
         formatAccountText(count) {
             return `${count} ${count === 1 ? 'account' : 'accounts'}`;
         },
+        filterSelectableAccountIds(accountIds) {
+            const selectableAccountIds = new Set(this.accountOptions.map(account => account.id));
+            return accountIds.filter(accountId => selectableAccountIds.has(accountId));
+        },
         openAccountPicker() {
-            this.draftSelectedAccounts = [...this.selectedAccounts];
+            this.draftSelectedAccounts = this.filterSelectableAccountIds(this.selectedAccounts);
             this.accountSearchText = '';
             this.showAccountPicker = true;
         },
         closeAccountPicker() {
-            this.draftSelectedAccounts = [...this.selectedAccounts];
+            this.draftSelectedAccounts = this.filterSelectableAccountIds(this.selectedAccounts);
             this.accountSearchText = '';
             this.showAccountPicker = false;
         },
@@ -979,7 +983,8 @@ createApp({
             this.draftSelectedAccounts = [];
         },
         saveAccountSelection() {
-            this.selectedAccounts = [...this.draftSelectedAccounts];
+            this.selectedAccounts = this.filterSelectableAccountIds(this.draftSelectedAccounts);
+            this.draftSelectedAccounts = [...this.selectedAccounts];
             this.accountText = this.formatAccountText(this.selectedAccounts.length);
             localStorage.setItem('selectedAccounts', JSON.stringify(this.selectedAccounts));
             localStorage.setItem('accountText', this.accountText);
@@ -1081,7 +1086,7 @@ createApp({
             this.showAccountModal = false;
         },
         isAccountSelected(accountId) {
-            return this.selectedAccounts.includes(accountId);
+            return this.modalSelectedAccounts.includes(accountId);
         },
         getAccountById(accountId) {
             return this.availableAccounts.find(account => account.id === accountId);
@@ -1090,31 +1095,31 @@ createApp({
             if (this.allAccountsSelected) {
                 // 取消选择所有
                 this.filteredAvailableAccounts.forEach(account => {
-                    const index = this.selectedAccounts.indexOf(account.id);
+                    const index = this.modalSelectedAccounts.indexOf(account.id);
                     if (index > -1) {
-                        this.selectedAccounts.splice(index, 1);
+                        this.modalSelectedAccounts.splice(index, 1);
                     }
                 });
             } else {
                 // 选择所有
                 this.filteredAvailableAccounts.forEach(account => {
-                    if (!this.selectedAccounts.includes(account.id)) {
-                        this.selectedAccounts.push(account.id);
+                    if (!this.modalSelectedAccounts.includes(account.id)) {
+                        this.modalSelectedAccounts.push(account.id);
                     }
                 });
             }
         },
         removeAccount(accountId) {
-            const index = this.selectedAccounts.indexOf(accountId);
+            const index = this.modalSelectedAccounts.indexOf(accountId);
             if (index > -1) {
-                this.selectedAccounts.splice(index, 1);
+                this.modalSelectedAccounts.splice(index, 1);
             }
         },
         clearAllAccounts() {
-            this.selectedAccounts = [];
+            this.modalSelectedAccounts = [];
         },
-        saveAccountSelection() {
-            const count = this.selectedAccounts.length;
+        saveModalAccountSelection() {
+            const count = this.modalSelectedAccounts.length;
             this.accountText = count === 1 ? '1 account' : `${count} accounts`;
             this.saveAccountText();
             this.closeAccountModal();

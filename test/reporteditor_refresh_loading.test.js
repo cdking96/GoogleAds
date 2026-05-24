@@ -185,6 +185,51 @@ test('report editor account selector keeps selected accounts in the right panel 
   assert.equal(context.showAccountPicker, false);
 });
 
+test('report editor account selector counts only visible draft accounts', () => {
+  const { config } = loadReportEditorAppConfig();
+  const context = {
+    ...config.data(),
+    ...config.methods
+  };
+
+  context.draftSelectedAccounts = [
+    '680-644-5446',
+    '921-239-0750',
+    '403-118-9021',
+    '1124-4-mcc',
+    '172-135-6148'
+  ];
+
+  assert.equal(config.computed.draftSelectedCount.call(context), 3);
+  assert.deepEqual(
+    Array.from(config.computed.selectedAccountItems.call(context).map(account => account.id)),
+    ['680-644-5446', '921-239-0750', '403-118-9021']
+  );
+});
+
+test('report editor account picker save commits the draft selection and closes the picker', () => {
+  const { config, sandbox } = loadReportEditorAppConfig();
+  const context = {
+    ...config.data(),
+    ...config.methods,
+    selectedAccounts: ['680-644-5446', '921-239-0750'],
+    draftSelectedAccounts: ['680-644-5446', '921-239-0750', '403-118-9021'],
+    showAccountPicker: true,
+    showAccountModal: false
+  };
+
+  config.methods.saveAccountSelection.call(context);
+
+  assert.deepEqual(context.selectedAccounts, ['680-644-5446', '921-239-0750', '403-118-9021']);
+  assert.equal(context.accountText, '3 accounts');
+  assert.equal(context.showAccountPicker, false);
+  assert.equal(context.showAccountModal, false);
+  assert.equal(
+    sandbox.localStorage.getItem('selectedAccounts'),
+    JSON.stringify(['680-644-5446', '921-239-0750', '403-118-9021'])
+  );
+});
+
 test('opening and changing the report editor date picker jumps to selected date without smooth scrolling', () => {
   const { config, sandbox } = loadReportEditorAppConfig();
   const scrollIntoViewCalls = [];
@@ -255,7 +300,7 @@ test('applying a report editor date range shows the table loading state while da
   assert.equal(context.isRefreshing, false);
   assert.equal(context.campaigns[0].campaign, 'Campaign refreshed');
   assert.deepEqual(
-    config.computed.filteredCampaigns.call(context).map(campaign => campaign.campaign),
+    Array.from(config.computed.filteredCampaigns.call(context).map(campaign => campaign.campaign)),
     ['Campaign refreshed']
   );
 });
