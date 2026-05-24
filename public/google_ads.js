@@ -687,17 +687,23 @@ createApp({
     methods: {
         async reloadData() {
             if (this.isRefreshing) return;
-            this.isRefreshing = true;
             this.showDatePicker = false;
             this.dropdown = '';
             this.isNotificationsOpen = false;
+
+            await this.runGoogleAdsDataLoad();
+        },
+        async runGoogleAdsDataLoad() {
+            if (this.isRefreshing) return;
+            this.isRefreshing = true;
 
             try {
                 await this.$nextTick();
                 await Promise.all([
                     this.loadData(),
-                    new Promise(resolve => setTimeout(resolve, 1200))
+                    new Promise(resolve => setTimeout(resolve, 1400))
                 ]);
+                this.currentPage = 1;
             } finally {
                 this.isRefreshing = false;
             }
@@ -1073,14 +1079,14 @@ createApp({
             this.draftEndDate = this.cloneDate(this.endDate);
             this.selectingStartDate = true;
         },
-        applyDateRange() {
+        async applyDateRange() {
             if (!this.draftStartDate || !this.draftEndDate) return;
             this.startDate = this.cloneDate(this.draftStartDate);
             this.endDate = this.cloneDate(this.draftEndDate);
             this.appliedDateOption = this.selectedDateOption;
             this.saveDateFilterState();
-            this.refreshCampaignData();
             this.showDatePicker = false;
+            await this.runGoogleAdsDataLoad();
         },
         cancelDateRange() {
             this.resetDraftDateRange();
@@ -1088,9 +1094,9 @@ createApp({
         },
         applyQuickDateOption(option) {
             this.selectDateOption(option);
-            this.applyDateRange();
+            return this.applyDateRange();
         },
-        shiftDateRange(direction) {
+        async shiftDateRange(direction) {
             const start = this.cloneDate(this.startDate);
             const end = this.cloneDate(this.endDate);
             if (!start || !end) return;
@@ -1102,7 +1108,7 @@ createApp({
             this.appliedDateOption = 'custom';
             this.selectedDateOption = 'custom';
             this.saveDateFilterState();
-            this.refreshCampaignData();
+            await this.runGoogleAdsDataLoad();
         },
         saveDateFilterState() {
             try {

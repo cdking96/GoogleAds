@@ -33,9 +33,12 @@ function loadGoogleAdsAppConfig() {
   const sandbox = {
     console,
     Date,
+    JSON,
     Math,
+    Promise,
     URLSearchParams,
     loader,
+    fetchCount: 0,
     localStorage: createMemoryStorage(),
     sessionStorage: createMemoryStorage(),
     performance: {
@@ -43,8 +46,22 @@ function loadGoogleAdsAppConfig() {
         return 1400;
       }
     },
+    setTimeout(callback, delay) {
+      sandbox.timeouts.push({ callback, delay });
+      return sandbox.timeouts.length;
+    },
+    fetch() {
+      sandbox.fetchCount += 1;
+      return Promise.resolve({
+        json() {
+          return Promise.resolve([]);
+        }
+      });
+    },
     timeouts: [],
     document: {
+      addEventListener() {},
+      removeEventListener() {},
       getElementById(id) {
         return id === 'google-ads-boot-loader' ? loader : null;
       },
@@ -56,6 +73,9 @@ function loadGoogleAdsAppConfig() {
       __googleAdsBootStartedAt: 100,
       GOOGLE_ADS_PAGE: 'campaigns',
       innerWidth: 1400,
+      requestAnimationFrame(callback) {
+        callback();
+      },
       location: {
         pathname: '/aw/campaigns',
         search: ''
@@ -97,13 +117,13 @@ test('browser boot loaders expand the Google Ads logo once and hold the expanded
   assert.match(googleAdsTemplate, /<path class="report-boot-logo-blue report-boot-logo-shape"[\s\S]*M186\.40,147\.91L121\.40,35\.33[\s\S]*L135\.60,177\.25[\s\S]*fill="#4285F4"/);
   assert.match(styles, /\.report-boot-logo\s*\{[^}]*width:\s*192px;[^}]*height:\s*192px;[^}]*overflow:\s*visible;/s);
   assert.match(styles, /\.report-boot-logo-shape\s*\{[^}]*transform-box:\s*fill-box;[^}]*transform-origin:\s*center;/s);
-  assert.match(styles, /\.report-boot-logo-yellow\s*\{[^}]*animation:\s*report-boot-yellow-expand\s+420ms[^;]*forwards;/s);
-  assert.match(styles, /\.report-boot-logo-green\s*\{[^}]*animation:\s*report-boot-green-slide\s+520ms[^;]*300ms\s+forwards;/s);
-  assert.match(styles, /\.report-boot-logo-blue\s*\{[^}]*animation:\s*report-boot-blue-expand\s+420ms[^;]*forwards;/s);
-  assert.match(styles, /@keyframes report-boot-yellow-expand\s*\{[\s\S]*?from\s*\{[\s\S]*?translate\(34px,\s*-12px\)[\s\S]*?rotate\(-24deg\)[\s\S]*?scaleY\(0\.88\)/);
-  assert.match(styles, /@keyframes report-boot-green-slide\s*\{[\s\S]*?from\s*\{[\s\S]*?opacity:\s*0;[\s\S]*?translate\(49px,\s*-84px\)[\s\S]*?scale\(0\.58\)[\s\S]*?38%\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?translate\(49px,\s*-84px\)[\s\S]*?70%\s*\{[\s\S]*?translate\(16px,\s*-28px\)[\s\S]*?to\s*\{[\s\S]*?translate\(0,\s*0\)\s+scale\(1\)/);
-  assert.match(styles, /@keyframes report-boot-blue-expand\s*\{[\s\S]*?from\s*\{[\s\S]*?translate\(-22px,\s*12px\)[\s\S]*?rotate\(26deg\)[\s\S]*?scaleY\(0\.9\)/);
-  assert.match(styles, /@media \(prefers-reduced-motion:\s*reduce\)\s*\{[^}]*\.report-boot-logo-shape\s*\{[^}]*animation:\s*none;/s);
+  assert.match(styles, /\.report-boot-logo-yellow\s*\{[^}]*opacity:\s*0;[^}]*animation:\s*report-boot-yellow-expand\s+620ms[^;]*forwards;/s);
+  assert.match(styles, /\.report-boot-logo-green\s*\{[^}]*opacity:\s*0;[^}]*animation:\s*report-boot-green-slide\s+520ms[^;]*420ms\s+forwards;/s);
+  assert.match(styles, /\.report-boot-logo-blue\s*\{[^}]*animation:\s*report-boot-blue-expand\s+620ms[^;]*forwards;/s);
+  assert.match(styles, /@keyframes report-boot-yellow-expand\s*\{[\s\S]*?0%\s*\{[\s\S]*?opacity:\s*0;[\s\S]*?translate\(50px,\s*-20px\)[\s\S]*?rotate\(-31deg\)[\s\S]*?scaleY\(0\.82\)[\s\S]*?14%\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?34%\s*\{[\s\S]*?rotate\(-22deg\)[\s\S]*?72%\s*\{[\s\S]*?translate\(5px,\s*-2px\)[\s\S]*?to\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?translate\(0,\s*0\)\s+rotate\(0deg\)\s+scaleY\(1\)/);
+  assert.match(styles, /@keyframes report-boot-green-slide\s*\{[\s\S]*?0%\s*\{[\s\S]*?opacity:\s*0;[\s\S]*?translate\(54px,\s*-88px\)[\s\S]*?scale\(0\.54\)[\s\S]*?24%\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?translate\(54px,\s*-88px\)[\s\S]*?58%\s*\{[\s\S]*?translate\(21px,\s*-37px\)[\s\S]*?82%\s*\{[\s\S]*?translate\(4px,\s*-8px\)[\s\S]*?to\s*\{[\s\S]*?translate\(0,\s*0\)\s+scale\(1\)/);
+  assert.match(styles, /@keyframes report-boot-blue-expand\s*\{[\s\S]*?0%\s*\{[\s\S]*?translate\(-28px,\s*10px\)[\s\S]*?rotate\(30deg\)[\s\S]*?scaleY\(0\.9\)[\s\S]*?24%\s*\{[\s\S]*?rotate\(30deg\)[\s\S]*?68%\s*\{[\s\S]*?translate\(-4px,\s*1px\)[\s\S]*?to\s*\{[\s\S]*?translate\(0,\s*0\)\s+rotate\(0deg\)\s+scaleY\(1\)/);
+  assert.match(styles, /@media \(prefers-reduced-motion:\s*reduce\)\s*\{[^}]*\.report-boot-logo-shape\s*\{[^}]*animation:\s*none;[^}]*opacity:\s*1;/s);
 });
 
 test('boot loader yellow and blue capsules form a symmetric fork', () => {
@@ -154,6 +174,83 @@ test('google ads shell hides its boot loader after the minimum visible interval'
   assert.equal(sandbox.timeouts[1].delay, 220);
   sandbox.timeouts[1].callback();
   assert.equal(loader.removed, true);
+});
+
+test('campaign page data reload keeps the loading state visible like the report page', async () => {
+  const { config, sandbox } = loadGoogleAdsAppConfig();
+  const context = {
+    ...config.data(),
+    ...config.methods,
+    pageMode: 'campaigns',
+    currentPage: 4,
+    showDatePicker: true,
+    dropdown: 'tools',
+    isNotificationsOpen: true,
+    loadData() {
+      sandbox.loadDataCount = (sandbox.loadDataCount || 0) + 1;
+      return Promise.resolve();
+    },
+    $nextTick() {
+      return Promise.resolve();
+    }
+  };
+
+  const reloadPromise = config.methods.reloadData.call(context);
+  await Promise.resolve();
+  await Promise.resolve();
+  await new Promise(resolve => setImmediate(resolve));
+
+  assert.equal(context.isRefreshing, true);
+  assert.equal(context.showDatePicker, false);
+  assert.equal(context.dropdown, '');
+  assert.equal(context.isNotificationsOpen, false);
+  assert.equal(sandbox.loadDataCount, 1);
+  assert.equal(sandbox.timeouts[0].delay, 1400);
+
+  sandbox.timeouts[0].callback();
+  await reloadPromise;
+
+  assert.equal(context.currentPage, 1);
+  assert.equal(context.isRefreshing, false);
+});
+
+test('campaign date range changes use the same delayed data loading state', async () => {
+  const { config, sandbox } = loadGoogleAdsAppConfig();
+  const context = {
+    ...config.data(),
+    ...config.methods,
+    pageMode: 'campaigns',
+    currentPage: 3,
+    selectedDateOption: 'custom',
+    filteredRawData: [],
+    draftStartDate: new Date(2026, 4, 20),
+    draftEndDate: new Date(2026, 4, 21),
+    showDatePicker: true,
+    loadData() {
+      sandbox.loadDataCount = (sandbox.loadDataCount || 0) + 1;
+      return Promise.resolve();
+    },
+    $nextTick() {
+      return Promise.resolve();
+    }
+  };
+
+  const applyPromise = config.methods.applyDateRange.call(context);
+  await Promise.resolve();
+  await Promise.resolve();
+  await new Promise(resolve => setImmediate(resolve));
+
+  assert.equal(context.isRefreshing, true);
+  assert.equal(context.showDatePicker, false);
+  assert.equal(context.appliedDateOption, 'custom');
+  assert.equal(sandbox.loadDataCount, 1);
+  assert.equal(sandbox.timeouts[0].delay, 1400);
+
+  sandbox.timeouts[0].callback();
+  await applyPromise;
+
+  assert.equal(context.currentPage, 1);
+  assert.equal(context.isRefreshing, false);
 });
 
 test('campaign conversion chart uses an arithmetic nice-number axis', () => {

@@ -58,6 +58,23 @@ Animation duration should be short enough for a boot transition, approximately `
 
 The existing top progress bar may continue looping while load completion is pending. The logo itself must not collapse or repeat.
 
+## Reference Frame Audit
+
+The supplied frame sequence in `/Users/weiquanni/Downloads/files` maps to this motion design:
+
+- `frame_042`: blue capsule is the only clear visible logo part, centered and nearly vertical.
+- `frame_043`: a small yellow sliver appears at the lower-left edge of the blue stroke.
+- `frame_044` to `frame_046`: yellow opens outward while blue rotates into the right stroke, forming the Ads fork.
+- `frame_047` to `frame_048`: the yellow and blue strokes hold nearly complete positions before the green endpoint appears.
+- `frame_049` to `frame_052`: green appears near the upper overlap, grows to full size, and slides diagonally down-left.
+- `frame_053` to `frame_055`: green settles into the lower-left endpoint and the full logo holds until the loader fades.
+
+Implementation timing follows that sequence:
+
+- Blue and yellow animate over `620ms`; blue holds the compact vertical pose at the beginning, while yellow stays hidden for the first `14%`.
+- Green is delayed by `420ms`, then slides for `520ms` from the upper overlap into the lower-left endpoint.
+- The loader remains visible for at least `1000ms`, so the expanded mark has a brief held state before fade-out.
+
 ## Reduced Motion
 
 When `prefers-reduced-motion: reduce` is active:
