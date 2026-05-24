@@ -3,10 +3,17 @@
     "date": "2026-05-16",
     "campaignId": "23837392715",
     "campaign": "BA608-包1-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 470.7611997036452,
     "impressions": 90026.08812499646,
     "clicks": 2980.8474465638883,
     "installs": 85.59108753932028,
+=======
+    "cost": 471.18922200368615,
+    "impressions": 89976.8298574668,
+    "clicks": 2985.819197173578,
+    "installs": 85,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 15,
     "costPerInstall": 2.77,
     "costPerInAppActions": 15.69,
@@ -31,10 +38,17 @@
     "date": "2026-05-16",
     "campaignId": "23917606743",
     "campaign": "BA608-包10-kkluv-GG-0516",
+<<<<<<< HEAD
     "cost": 402.23323642589526,
     "impressions": 180298.302465833,
     "clicks": 2890.9655734410403,
     "installs": 78.2837415706463,
+=======
+    "cost": 401.63365553807756,
+    "impressions": 180623.39074126247,
+    "clicks": 2887.4592693201434,
+    "installs": 79,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 12,
     "costPerInstall": 2.58,
     "costPerInAppActions": 16.75,
@@ -59,10 +73,17 @@
     "date": "2026-05-16",
     "campaignId": "23914736884",
     "campaign": "BA608-包11-kkluv-GG-0516",
+<<<<<<< HEAD
     "cost": 215.1415456004987,
     "impressions": 21553.120633901188,
     "clicks": 683.7119641296176,
     "installs": 25.18054524137498,
+=======
+    "cost": 215.55397090559453,
+    "impressions": 21509.023239279024,
+    "clicks": 684.0042593566503,
+    "installs": 25,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 7,
     "costPerInstall": 4.31,
     "costPerInAppActions": 15.38,
@@ -87,10 +108,17 @@
     "date": "2026-05-16",
     "campaignId": "23842513658",
     "campaign": "BA608-包2-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 364.30732997997865,
     "impressions": 32322.31048960598,
     "clicks": 1077.3860496722025,
     "installs": 41.3118369919948,
+=======
+    "cost": 364.094848760077,
+    "impressions": 32315.62670797628,
+    "clicks": 1078.848362710752,
+    "installs": 41,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 11,
     "costPerInstall": 4.44,
     "costPerInAppActions": 16.56,
@@ -115,10 +143,17 @@
     "date": "2026-05-16",
     "campaignId": "23847764476",
     "campaign": "BA608-包4-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 519.5941634459955,
     "impressions": 269291.8272633652,
     "clicks": 4088.152943224648,
     "installs": 90.6409864799107,
+=======
+    "cost": 518.5861696442196,
+    "impressions": 268911.282006987,
+    "clicks": 4086.072915169136,
+    "installs": 91,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 18,
     "costPerInstall": 2.88,
     "costPerInAppActions": 14.42,
@@ -143,10 +178,17 @@
     "date": "2026-05-16",
     "campaignId": "23839527925",
     "campaign": "BA608-包5-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 2189.801074326313,
     "impressions": 402117.05151612003,
     "clicks": 11998.338642633149,
     "installs": 374.6263408512073,
+=======
+    "cost": 2190.102030264325,
+    "impressions": 402107.1117547361,
+    "clicks": 11987.67000437287,
+    "installs": 374,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 72,
     "costPerInstall": 2.94,
     "costPerInAppActions": 15.19,
@@ -171,10 +213,17 @@
     "date": "2026-05-16",
     "campaignId": "23848877667",
     "campaign": "BA608-包6-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 478.61643715459644,
     "impressions": 182574.4245958265,
     "clicks": 3910.719723008137,
     "installs": 88.62884484453849,
+=======
+    "cost": 478.75559933100834,
+    "impressions": 182716.51858983954,
+    "clicks": 3909.0788842126613,
+    "installs": 88,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 14,
     "costPerInstall": 2.72,
     "costPerInAppActions": 17.1,
@@ -199,10 +248,17 @@
     "date": "2026-05-16",
     "campaignId": "23858664289",
     "campaign": "BA608-包7-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 5662.156945659545,
     "impressions": 1055694.014350258,
     "clicks": 33348.38674704135,
     "installs": 904.7185536530301,
+=======
+    "cost": 5660.094377072032,
+    "impressions": 1054598.8208019247,
+    "clicks": 33334.85268596152,
+    "installs": 904,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 179,
     "costPerInstall": 3.14,
     "costPerInAppActions": 15.83,
@@ -227,10 +283,17 @@
     "date": "2026-05-16",
     "campaignId": "23857609742",
     "campaign": "BA608-包8-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 218.10122746670422,
     "impressions": 39487.158383220165,
     "clicks": 1215.0389759197162,
     "installs": 48.316384251599786,
+=======
+    "cost": 218.16729936978672,
+    "impressions": 39411.17965598219,
+    "clicks": 1216.0720948645414,
+    "installs": 48,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 8,
     "costPerInstall": 2.27,
     "costPerInAppActions": 13.64,
@@ -255,10 +318,17 @@
     "date": "2026-05-17",
     "campaignId": "23837392715",
     "campaign": "BA608-包1-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 278.9697754054516,
     "impressions": 55690.305942501785,
     "clicks": 1310.6242576970537,
     "installs": 38.28124433288301,
+=======
+    "cost": 279.0019987974663,
+    "impressions": 55681.76196983532,
+    "clicks": 1310.1976296229968,
+    "installs": 38,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 9,
     "costPerInstall": 3.68,
     "costPerInAppActions": 15.52,
@@ -283,10 +353,17 @@
     "date": "2026-05-17",
     "campaignId": "23917606743",
     "campaign": "BA608-包10-kkluv-GG-0516",
+<<<<<<< HEAD
     "cost": 227.02863290506278,
     "impressions": 65539.0270705752,
     "clicks": 1508.0028608557861,
     "installs": 55.39453239070499,
+=======
+    "cost": 227.44448607761848,
+    "impressions": 65467.99427140174,
+    "clicks": 1506.6569805295644,
+    "installs": 55,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 7,
     "costPerInstall": 2.07,
     "costPerInAppActions": 16.23,
@@ -311,10 +388,17 @@
     "date": "2026-05-17",
     "campaignId": "23914736884",
     "campaign": "BA608-包11-kkluv-GG-0516",
+<<<<<<< HEAD
     "cost": 554.6127221986922,
     "impressions": 112376.04891462308,
     "clicks": 3699.2363715625893,
     "installs": 87.3175860085658,
+=======
+    "cost": 554.6025762874426,
+    "impressions": 112471.48511501253,
+    "clicks": 3706.8279065520924,
+    "installs": 87,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 20,
     "costPerInstall": 3.19,
     "costPerInAppActions": 13.87,
@@ -339,10 +423,17 @@
     "date": "2026-05-17",
     "campaignId": "23914737635",
     "campaign": "BA608-包12-kkluv-GG-0517",
+<<<<<<< HEAD
     "cost": 220.41694862380132,
     "impressions": 48992.98507250542,
     "clicks": 1051.1044434625796,
     "installs": 32.23035848803872,
+=======
+    "cost": 220.05124029179856,
+    "impressions": 49039.82572093149,
+    "clicks": 1049.362824956518,
+    "installs": 32,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 7,
     "costPerInstall": 3.44,
     "costPerInAppActions": 15.73,
@@ -367,10 +458,17 @@
     "date": "2026-05-17",
     "campaignId": "23842513658",
     "campaign": "BA608-包2-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 113.97305049965526,
     "impressions": 37971.887799801276,
     "clicks": 1083.3738369836362,
     "installs": 33.159573194109086,
+=======
+    "cost": 114.19111799794078,
+    "impressions": 37978.20432987693,
+    "clicks": 1083.5703061299957,
+    "installs": 33,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 4,
     "costPerInstall": 1.73,
     "costPerInAppActions": 14.26,
@@ -395,10 +493,17 @@
     "date": "2026-05-17",
     "campaignId": "23847764476",
     "campaign": "BA608-包4-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 616.4147326483576,
     "impressions": 123726.46690869343,
     "clicks": 3109.599086240757,
     "installs": 95.43315254412774,
+=======
+    "cost": 616.5354659864939,
+    "impressions": 123716.75058874754,
+    "clicks": 3110.382851084943,
+    "installs": 96,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 20,
     "costPerInstall": 3.25,
     "costPerInAppActions": 15.43,
@@ -423,10 +528,17 @@
     "date": "2026-05-17",
     "campaignId": "23839527925",
     "campaign": "BA608-包5-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 1259.1227867336352,
     "impressions": 681761.252496211,
     "clicks": 11186.368977933073,
     "installs": 247.2443112019978,
+=======
+    "cost": 1255.9320236131582,
+    "impressions": 681431.046088581,
+    "clicks": 11187.908910323637,
+    "installs": 247,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 47,
     "costPerInstall": 2.56,
     "costPerInAppActions": 13.38,
@@ -451,10 +563,17 @@
     "date": "2026-05-17",
     "campaignId": "23848877667",
     "campaign": "BA608-包6-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 517.6739764887418,
     "impressions": 119251.07287197652,
     "clicks": 2766.7305570156623,
     "installs": 83.26891246607151,
+=======
+    "cost": 517.3547998581942,
+    "impressions": 119212.11853313028,
+    "clicks": 2764.731300885817,
+    "installs": 84,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 15,
     "costPerInstall": 3.12,
     "costPerInAppActions": 17.24,
@@ -479,10 +598,17 @@
     "date": "2026-05-17",
     "campaignId": "23858664289",
     "campaign": "BA608-包7-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 5174.479695007142,
     "impressions": 1219977.6932677734,
     "clicks": 32968.11348156354,
     "installs": 928.929767003589,
+=======
+    "cost": 5176.149449336171,
+    "impressions": 1222441.4370371727,
+    "clicks": 32931.994259890205,
+    "installs": 929,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 168,
     "costPerInstall": 2.8,
     "costPerInAppActions": 15.41,
@@ -507,10 +633,17 @@
     "date": "2026-05-17",
     "campaignId": "23914737765",
     "campaign": "BA608-包7-kkluv-GG-0517",
+<<<<<<< HEAD
     "cost": 3398.74247298535,
     "impressions": 700301.5176026147,
     "clicks": 17202.401468231612,
     "installs": 545.3120402723764,
+=======
+    "cost": 3394.53474946626,
+    "impressions": 700224.0202519511,
+    "clicks": 17180.22230692542,
+    "installs": 546,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 116,
     "costPerInstall": 3.14,
     "costPerInAppActions": 14.65,
@@ -535,10 +668,17 @@
     "date": "2026-05-17",
     "campaignId": "23857609742",
     "campaign": "BA608-包8-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 128.8598744657564,
     "impressions": 42502.452870984904,
     "clicks": 781.2936304131696,
     "installs": 25.112878970275826,
+=======
+    "cost": 128.879128450952,
+    "impressions": 42473.6384977858,
+    "clicks": 781.9228853482599,
+    "installs": 25,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 5,
     "costPerInstall": 2.58,
     "costPerInAppActions": 12.89,
@@ -563,10 +703,17 @@
     "date": "2026-05-15",
     "campaignId": "23837392715",
     "campaign": "BA608-包1-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 695.1807982346173,
     "impressions": 218513.9144219487,
     "clicks": 4331.449199844309,
     "installs": 145.52733389162526,
+=======
+    "cost": 694.894623863977,
+    "impressions": 218542.68512289796,
+    "clicks": 4324.275195492586,
+    "installs": 146,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 22,
     "costPerInstall": 2.4,
     "costPerInAppActions": 15.81,
@@ -590,11 +737,19 @@
   {
     "date": "2026-05-15",
     "campaignId": "23842513658",
+<<<<<<< HEAD
     "campaign": "BA608-包2-kkluv-GG-0514",
     "cost": 592.9970952427501,
     "impressions": 136127.55475964968,
     "clicks": 2848.530318717855,
     "installs": 94.72087492463253,
+=======
+    "campaign": "BA608-包2-kkluv-GG-0514111xxx",
+    "cost": 593.1158983601148,
+    "impressions": 136133.60370467615,
+    "clicks": 2844.848725382741,
+    "installs": 95,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 21,
     "costPerInstall": 3.16,
     "costPerInAppActions": 14.13,
@@ -619,10 +774,17 @@
     "date": "2026-05-15",
     "campaignId": "23837397655",
     "campaign": "BA608-包3-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 371.18630215217263,
     "impressions": 67905.67698251284,
     "clicks": 1291.9564130461317,
     "installs": 31.22751021007659,
+=======
+    "cost": 371.66320880337486,
+    "impressions": 68005.22615060206,
+    "clicks": 1290.5754132865804,
+    "installs": 31,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 12,
     "costPerInstall": 5.99,
     "costPerInAppActions": 15.47,
@@ -647,10 +809,17 @@
     "date": "2026-05-15",
     "campaignId": "23847764476",
     "campaign": "BA608-包4-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 499.5903298141075,
     "impressions": 63995.07978201023,
     "clicks": 2190.783669679697,
     "installs": 68.35763906215298,
+=======
+    "cost": 499.2896721974918,
+    "impressions": 63929.05962690213,
+    "clicks": 2192.8484069356673,
+    "installs": 68,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 18,
     "costPerInstall": 3.67,
     "costPerInAppActions": 13.88,
@@ -675,10 +844,17 @@
     "date": "2026-05-15",
     "campaignId": "23839527925",
     "campaign": "BA608-包5-kkluv-GG-0513",
+<<<<<<< HEAD
     "cost": 2940.243890700434,
     "impressions": 867523.4283611687,
     "clicks": 18768.487450933022,
     "installs": 424.97633119505565,
+=======
+    "cost": 2939.3232128975365,
+    "impressions": 868182.2216601969,
+    "clicks": 18755.131533159918,
+    "installs": 424,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 101,
     "costPerInstall": 3.48,
     "costPerInAppActions": 14.56,
@@ -703,10 +879,17 @@
     "date": "2026-05-15",
     "campaignId": "23848877667",
     "campaign": "BA608-包6-kkluv-GG-0514",
+<<<<<<< HEAD
     "cost": 584.2620015000663,
     "impressions": 181188.99780804897,
     "clicks": 4365.099969200252,
     "installs": 96.31740262573247,
+=======
+    "cost": 584.6336996031262,
+    "impressions": 181060.1120630497,
+    "clicks": 4357.884499585959,
+    "installs": 96,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 18,
     "costPerInstall": 3.04,
     "costPerInAppActions": 16.22,
@@ -731,10 +914,17 @@
     "date": "2026-05-15",
     "campaignId": "23858664289",
     "campaign": "BA608-包7-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 1178.987194650214,
     "impressions": 233174.78281220963,
     "clicks": 7294.364476405165,
     "installs": 204.62467245755775,
+=======
+    "cost": 1178.9293293161488,
+    "impressions": 233196.53971430598,
+    "clicks": 7281.454043314737,
+    "installs": 205,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 45,
     "costPerInstall": 2.89,
     "costPerInAppActions": 13.1,
@@ -759,10 +949,17 @@
     "date": "2026-05-15",
     "campaignId": "23857609742",
     "campaign": "BA608-包8-kkluv-GG-0515",
+<<<<<<< HEAD
     "cost": 276.88689128117375,
     "impressions": 32184.355595814308,
     "clicks": 1089.9408186152887,
     "installs": 36.24292548414395,
+=======
+    "cost": 276.9504346450788,
+    "impressions": 32131.992840683422,
+    "clicks": 1091.060155818294,
+    "installs": 36,
+>>>>>>> 1e74167 (表格塞选处理)
     "inAppActions": 8,
     "costPerInstall": 3.85,
     "costPerInAppActions": 17.31,
@@ -785,7 +982,7 @@
   },
   {
     "date": "2026-05-16",
-    "campaignId": "",
+    "campaignId": "23914737635",
     "campaign": "BA608-包12-kkluv-GG-0517",
     "cost": "",
     "impressions": "",
@@ -813,7 +1010,7 @@
   },
   {
     "date": "2026-05-16",
-    "campaignId": "",
+    "campaignId": "23914737765",
     "campaign": "BA608-包7-kkluv-GG-0517",
     "cost": "",
     "impressions": "",
@@ -841,7 +1038,35 @@
   },
   {
     "date": "2026-05-16",
-    "campaignId": "",
+    "campaignId": "23842513658",
+    "campaign": "BA608-包2-kkluv-GG-0514111xxx",
+    "cost": "",
+    "impressions": "",
+    "clicks": "",
+    "installs": "",
+    "inAppActions": "",
+    "costPerInstall": "",
+    "costPerInAppActions": "",
+    "ctr": "",
+    "Buget": "",
+    "AdGroup": "",
+    "Status": "",
+    "OptimizationScore": "",
+    "Account": "",
+    "CampaignType": "",
+    "ViewThroughConv": "",
+    "ParticlpatedInAppActions": "",
+    "CostParticlpatedInAppActions": "",
+    "ConvRate": "",
+    "Conversions": "",
+    "CostPerConv": "",
+    "TargetCPA": "",
+    "BrandInclusions": "",
+    "LocationsOfInterest": ""
+  },
+  {
+    "date": "2026-05-16",
+    "campaignId": "23837397655",
     "campaign": "BA608-包3-kkluv-GG-0513",
     "cost": "",
     "impressions": "",
@@ -869,7 +1094,35 @@
   },
   {
     "date": "2026-05-17",
-    "campaignId": "",
+    "campaignId": "23842513658",
+    "campaign": "BA608-包2-kkluv-GG-0514111xxx",
+    "cost": "",
+    "impressions": "",
+    "clicks": "",
+    "installs": "",
+    "inAppActions": "",
+    "costPerInstall": "",
+    "costPerInAppActions": "",
+    "ctr": "",
+    "Buget": "",
+    "AdGroup": "",
+    "Status": "",
+    "OptimizationScore": "",
+    "Account": "",
+    "CampaignType": "",
+    "ViewThroughConv": "",
+    "ParticlpatedInAppActions": "",
+    "CostParticlpatedInAppActions": "",
+    "ConvRate": "",
+    "Conversions": "",
+    "CostPerConv": "",
+    "TargetCPA": "",
+    "BrandInclusions": "",
+    "LocationsOfInterest": ""
+  },
+  {
+    "date": "2026-05-17",
+    "campaignId": "23837397655",
     "campaign": "BA608-包3-kkluv-GG-0513",
     "cost": "",
     "impressions": "",
@@ -897,7 +1150,7 @@
   },
   {
     "date": "2026-05-15",
-    "campaignId": "",
+    "campaignId": "23917606743",
     "campaign": "BA608-包10-kkluv-GG-0516",
     "cost": "",
     "impressions": "",
@@ -925,7 +1178,7 @@
   },
   {
     "date": "2026-05-15",
-    "campaignId": "",
+    "campaignId": "23914736884",
     "campaign": "BA608-包11-kkluv-GG-0516",
     "cost": "",
     "impressions": "",
@@ -953,7 +1206,35 @@
   },
   {
     "date": "2026-05-15",
-    "campaignId": "",
+    "campaignId": "23842513658",
+    "campaign": "BA608-包2-kkluv-GG-0514",
+    "cost": "",
+    "impressions": "",
+    "clicks": "",
+    "installs": "",
+    "inAppActions": "",
+    "costPerInstall": "",
+    "costPerInAppActions": "",
+    "ctr": "",
+    "Buget": "",
+    "AdGroup": "",
+    "Status": "",
+    "OptimizationScore": "",
+    "Account": "",
+    "CampaignType": "",
+    "ViewThroughConv": "",
+    "ParticlpatedInAppActions": "",
+    "CostParticlpatedInAppActions": "",
+    "ConvRate": "",
+    "Conversions": "",
+    "CostPerConv": "",
+    "TargetCPA": "",
+    "BrandInclusions": "",
+    "LocationsOfInterest": ""
+  },
+  {
+    "date": "2026-05-15",
+    "campaignId": "23914737635",
     "campaign": "BA608-包12-kkluv-GG-0517",
     "cost": "",
     "impressions": "",
@@ -981,7 +1262,11 @@
   },
   {
     "date": "2026-05-15",
+<<<<<<< HEAD
     "campaignId": "",
+=======
+    "campaignId": "23914737765",
+>>>>>>> 1e74167 (表格塞选处理)
     "campaign": "BA608-包7-kkluv-GG-0517",
     "cost": "",
     "impressions": "",
